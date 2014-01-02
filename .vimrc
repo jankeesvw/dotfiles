@@ -121,6 +121,7 @@ let g:indent_guides_indent_levels = 6
 "}}}
 
 Bundle 'tpope/vim-rails'
+Bundle 'lmeijvogel/vim-yaml-helper'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
@@ -152,6 +153,11 @@ map <Leader>a :call RunAllSpecs()<CR>
 command! -nargs=1 Silent
   \ | execute ':silent !'.<q-args>
   \ | execute ':redraw!'
+
+function! RunInVimux(command)
+  let _ = VimuxOpenPane()
+  let _ = VimuxSendText(a:command)
+endfunction
 
 " Edit vimrc
 command Vimrc execute "e ~/dotfiles/.vimrc"
