@@ -27,7 +27,7 @@ private
 
   def self.skip_file?(file_name)
     extenstion = File.extname(file_name)
-    ignored_file = %w{README.md Rakefile . .. .git}.include?(file_name)
+    ignored_file = %w{README.md Rakefile . .. .git bin}.include?(file_name)
     ignored_extension = %{.md .swp}.include?(extenstion) if extenstion != ""
     ignored_file || ignored_extension
   end
