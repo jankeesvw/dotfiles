@@ -151,7 +151,7 @@ map <Leader>a :call RunAllSpecs()<CR>
 " Custom commands
 
 " Edit vimrc
-command Vimrc execute "e ~/vim/vimrc"
+command Vimrc execute "e ~/dotfiles/.vimrc"
 command ShowWhiteSpace execute "set list | :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<"
 
 " Grep config {{{
@@ -179,6 +179,10 @@ nnoremap <Leader>f gg=G<CR>
 " ctrl-p {{{
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_max_depth = 10
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\^.git|\.hg$\|\.svn$|^vendor$|^coverage$|^tmp$|^rdoc$|',
+  \ 'file': '\.png$\|\.jpg$\|\.gif$|\.DS_Store',
+  \ }
 set grepprg=ag\ --nogroup\ --nocolor
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
