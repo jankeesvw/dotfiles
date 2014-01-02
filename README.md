@@ -21,5 +21,6 @@ $ rake install
 ```
 
 ## Special thanks to
-* [Steven Weller](https://github.com/suweller/dotfiles)
 * [Daniel van Hoesel](https://github.com/s0meone/dotfiles)
+* [Steven Weller](https://github.com/suweller/dotfiles)
+* [Daniel Zwijnenburg](https://github.com/DanielZwijnenburg/dotfiles)
