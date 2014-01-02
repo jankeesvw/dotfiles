@@ -149,10 +149,14 @@ map <Leader>a :call RunAllSpecs()<CR>
 "}}}
 
 " Custom commands
+command! -nargs=1 Silent
+  \ | execute ':silent !'.<q-args>
+  \ | execute ':redraw!'
 
 " Edit vimrc
 command Vimrc execute "e ~/dotfiles/.vimrc"
 command ShowWhiteSpace execute "set list | :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<"
+command Gitx execute "Silent gitx"
 
 " Grep config {{{
 let g:ackprg = 'ag --nogroup --nocolor --column'
