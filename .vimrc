@@ -122,6 +122,7 @@ let g:indent_guides_indent_levels = 6
 
 Bundle 'tpope/vim-rails'
 Bundle 'lmeijvogel/vim-yaml-helper'
+Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'

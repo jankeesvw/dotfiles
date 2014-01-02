@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+def print_folder path, depth
+	
+	if depth == 0
+		puts "Tree for #{path}"
+	end
+	
+	supplement = ""
+	for i in 0..depth
+	        supplement = supplement + "   "
+	end
+	supplement = supplement + "+"
+	
+	
+	`cd #{path}; find . -type f -maxdepth 1`.each_line { | file |	
+		file = file.match(/.\/(.*)/)[1]
+		puts "#{supplement} #{file}"
+	}
+	
+	`cd #{path}; find . -type d -maxdepth 1`.each_line { | folder |	
+		
+		match = folder.match(/.\/(.*)/)
+		if match != nil
+			folder = match[1]
+			
+			
+			if depth > 3
+				puts "#{supplement} #{folder} [...]"
+				next
+			end
+			
+			newFolder = "#{path}/#{folder}"
+			
+			if newFolder.include?(".git/objects")
+				puts "#{supplement} #{folder} [ ... git objects ...]"
+			else
+				puts "#{supplement} #{folder}"
+				print_folder newFolder , depth + 1
+			end
+		end
+	}
+	
+
+end
+
+print_folder `pwd | tr -d '\n'`, 0

@@ -10,8 +10,7 @@ COMPLETION_WAITING_DOTS="true"
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$PATH:/usr/local/mysql/bin"
-export PATH="$HOME/.oh-my-zsh/custom/bin:$PATH"
+export PATH="$HOME/dotfiles/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"

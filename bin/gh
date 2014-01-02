@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+##
+## Little command line util to open the Github project in your browser (OSX only!)
+##
+
+remotes = `git config --local --get-all remote.origin.url`.lines.to_a
+
+for remote in remotes
+	repository = remote if remote.include? "github"
+end
+
+if repository 
+
+	if repository.match(/@(.*).git/)
+		# example: ["git@github.com:TwelveTwenty/website.git\n"]
+ 		url = "https://" + repository.match(/@(.*).git/)[1].gsub(/:/,"/")
+	else
+		# example: ["https://github.com/robbyrussell/oh-my-zsh.git\n"]
+		url = repository.match(/(.*).git/)[1]
+	end
+
+	if ARGV.include? "c"
+		last_hash = `git log --pretty=format:%h -1`
+		url = url + "/commit/#{last_hash}"
+	elsif ARGV.include? "b"	
+		branch = `echo $(git branch | grep "*" | sed "s/* //")`
+		url = url + "/tree/" + branch
+	end
+
+	`open #{url}`
+	puts "opening: #{url}"
+else
+	puts "This doesn't seem to be a Github project"
+end
+
