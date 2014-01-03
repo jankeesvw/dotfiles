@@ -20,6 +20,7 @@ let mapleader=" "                 " Set <leader>
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
+set timeoutlen=300                " 300ms is the length <leader> stays hot.
 
 set backspace=indent,eol,start    " Intuitive backspacing.
 
