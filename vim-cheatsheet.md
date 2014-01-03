@@ -25,6 +25,10 @@
 
 ## Rails & Ruby
 
+### misc 
+
+- `<leader> a` = open alternative file
+
 ### specs
 
 - `<leader> as` = all specs 

@@ -165,8 +165,12 @@ command! -nargs=1 Silent
 
 " Edit vimrc
 command Vimrc execute "e ~/dotfiles/.vimrc"
+" Show white space
 command ShowWhiteSpace execute "set list | :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<"
+" Open GitX
 command Gitx execute "Silent gitx"
+" Open alternative file
+nnoremap <leader>a :A<CR>
 
 " Grep config {{{
 let g:ackprg = 'ag --nogroup --nocolor --column'
