@@ -8,8 +8,6 @@ plugins=(git history-substring-search osx rails pow powder rbenv bundler)
 ZSH_THEME=juanghurtado
 COMPLETION_WAITING_DOTS="true"
 
-source $ZSH/oh-my-zsh.sh
-
 export PATH="$HOME/dotfiles/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH=/usr/local/share/npm/bin:$PATH
@@ -21,3 +19,6 @@ eval "$(rbenv init -)"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+source $ZSH/oh-my-zsh.sh
+source $HOME/.aliases

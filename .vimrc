@@ -128,9 +128,27 @@ Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'jgdavey/vim-turbux'
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
 
 " Tmux {{{ 
 Bundle 'benmills/vimux'
+
+" Run specs in Vimux
+
+" This spec
+noremap <Leader>ts :call VimuxRunCommand("rspec " . expand('%'). ":" . line("."))<CR>
+" Current spec
+noremap <Leader>cs :call VimuxRunCommand("rspec " . expand('%'))<CR>
+" All specs
+noremap <Leader>as :call VimuxRunCommand("rspec spec/")<CR>
+
+" Send ctrl+c to Vimux
+noremap <C-c> :call VimuxRunCommand("\3")<CR>
+
+" Run last command in Vimux
+noremap <Leader>l :call VimuxRunCommand("!!\n\n")<CR>
+
 " }}}
 
 " Switch: {{{
@@ -138,27 +156,12 @@ Bundle 'AndrewRadev/switch.vim'
 nnoremap - :Switch<cr>
 "}}}
 
-" Ruby: Rspec runner Integration {{{
-Bundle 'thoughtbot/vim-rspec'
-
-Bundle 'tpope/vim-dispatch' 
-let g:rspec_command='Dispatch ./bin/rspec {spec}'
-
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-"}}}
+nnoremap <LEADER>de require 'pry'; binding.pry # DEBUG<ESC>
 
 " Custom commands
 command! -nargs=1 Silent
   \ | execute ':silent !'.<q-args>
   \ | execute ':redraw!'
-
-function! RunInVimux(command)
-  let _ = VimuxOpenPane()
-  let _ = VimuxSendText(a:command)
-endfunction
 
 " Edit vimrc
 command Vimrc execute "e ~/dotfiles/.vimrc"
