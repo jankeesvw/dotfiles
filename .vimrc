@@ -143,14 +143,14 @@ noremap <Leader>ts :call VimuxRunCommand("rspec " . expand('%'). ":" . line(".")
 noremap <Leader>cs :call VimuxRunCommand("rspec " . expand('%'))<CR>
 " All specs
 noremap <Leader>as :call VimuxRunCommand("rspec spec/")<CR>
-
 " Send ctrl+c to Vimux
 noremap <C-c> :call VimuxRunCommand("\3")<CR>
-
 " Run last command in Vimux
 noremap <Leader>l :call VimuxRunCommand("!!\n\n")<CR>
-
 " }}}
+
+" Comment line
+map <leader>/ :TComment<CR>
 
 " Switch: {{{
 Bundle 'AndrewRadev/switch.vim'
