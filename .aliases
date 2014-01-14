@@ -19,6 +19,7 @@ alias treehouse="cd /Users/jankeesvw/Documents/treehouse"
 alias jankeesvw="cd /Users/jankeesvw/Dropbox/jankeesvw.com"
 alias tango="cd /Users/jankeesvw/Documents/Timi/timi"
 alias timi="cd /Users/jankeesvw/Documents/Timi/timi"
+alias lex="cd /Users/jankeesvw/Documents/Lex2"
 
 #### System  specific aliases ####
 alias l="ls -alG"
