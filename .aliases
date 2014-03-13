@@ -24,7 +24,7 @@ alias lex="cd /Users/jankeesvw/Documents/Lex2"
 
 #### System  specific aliases ####
 alias l="ls -alG"
-alias aliases="vim ~/dotfiles/.zshenv && source ~/.zshrc"
+alias aliases="vim ~/dotfiles/.aliases && source ~/.zshrc"
 alias finderS='defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder'
 alias finderH='defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder'
 alias migrate="rake db:migrate db:test:clone"
