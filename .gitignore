@@ -20,6 +20,7 @@ Thumbs.db
 
 *.iml
 *.ipr
+.rake_tasks
 
 # Folders to ignore
 .hg
