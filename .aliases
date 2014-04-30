@@ -13,6 +13,7 @@ alias prune_branches='git checkout master && git fetch && git remote prune origi
 alias push="git push && github browse"
 alias route="rake routes | grep"
 alias gtrack='git branch -u origin/$(current_branch)'
+alias new_hashes="perl -pi -e 's/:([\w\d_]+)(\s*)=>/\1:/g'"
 
 #### PROJECTS SPECIFIC ALIASES ####
 alias work="cd ~/Documents/"
