@@ -195,6 +195,7 @@ noremap <space><space> :w<CR>
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 " Auto format file
 nnoremap <Leader>f gg=G<CR>
+nnoremap <Leader>s :Switch<CR>
 
 " ctrl-p {{{
 Bundle 'kien/ctrlp.vim'
