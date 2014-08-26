@@ -14,6 +14,7 @@ alias push="git push && github browse"
 alias route="rake routes | grep"
 alias gtrack='git branch -u origin/$(current_branch)'
 alias new_hashes="perl -pi -e 's/:([\w\d_]+)(\s*)=>/\1:/g'"
+alias ip="ifconfig | grep 'inet' | grep -oE \"\w+ [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\""
 
 #### PROJECTS SPECIFIC ALIASES ####
 alias work="cd ~/Documents/"
