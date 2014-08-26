@@ -1,13 +1,15 @@
 # Vim cheatsheet
 
 # Vim
-
+- `<leader>` == `space`
 - `:grep thingy` then use `:cnext` and `:cprev` to jump to the next and previous
 - `:gi` = previous point of insertion
 - `:jumps` = list with previous files
 - `:%s/foo/bar/g` = replace
 - `:noh` = stop highlights
 - `gg=G` reformat all code
+- `!ls` Execute external `ls` command
+- `*` Search current word
 
 ## Tmux
 
