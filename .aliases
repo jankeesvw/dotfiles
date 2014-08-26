@@ -31,7 +31,7 @@ alias l="ls -alG"
 alias aliases="vim ~/dotfiles/.aliases && source ~/.zshrc"
 alias finderS='defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder'
 alias finderH='defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder'
-alias migrate="rake db:migrate"
+alias migrate="rake db:migrate && rake db:migrate RAILS_ENV=test"
 alias s="rails server"
 alias erd="rake erd; open erd.pdf"
 alias belp="bundle exec localeapp pull"
