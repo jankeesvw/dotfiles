@@ -4,7 +4,7 @@ alias gl="git log --pretty=format:'%h - %an, %ar: %s'" # show a nice log: 'Janke
 alias gs="git status"
 alias gm="git checkout master"
 alias gx="gitx --all"
-alias gb="git branch -a"
+alias gb="git branch -av"
 alias gnb="git checkout -b "
 alias glog="git log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph"
 alias gp="git pull -r"
