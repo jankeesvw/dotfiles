@@ -2,11 +2,9 @@
 require 'irb/completion'
 require 'irb/ext/save-history'
 
-IRB.conf[:SAVE_HISTORY] = 1000
+IRB.conf[:SAVE_HISTORY] = 1_000_000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
-
 IRB.conf[:PROMPT_MODE] = :SIMPLE
-
 IRB.conf[:AUTO_INDENT] = true
 
 # https://github.com/carlhuda/bundler/issues/183#issuecomment-1149953
