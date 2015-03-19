@@ -14,7 +14,7 @@ export PATH="/usr/local/bin:$PATH"
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
-export PATH="$HOME/node_modules/.bin/:$PATH"
+export PATH="$HOME/node_modules/.bin:$PATH"
 
 eval "$(rbenv init -)"
 
