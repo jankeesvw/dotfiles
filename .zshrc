@@ -8,7 +8,7 @@ plugins=(git history-substring-search osx rails pow powder rbenv bundler rake-fa
 ZSH_THEME=juanghurtado
 COMPLETION_WAITING_DOTS="true"
 
-export EDITOR="/usr/local/bin/vim"
+export EDITOR="/usr/local/bin/mate -w"
 export PATH="$HOME/dotfiles/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH=/usr/local/share/npm/bin:$PATH
