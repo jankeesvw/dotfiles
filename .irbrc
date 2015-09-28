@@ -9,9 +9,9 @@ IRB.conf[:AUTO_INDENT] = true
 
 # https://github.com/carlhuda/bundler/issues/183#issuecomment-1149953
 if defined?(::Bundler)
-  global_gemset = ENV['GEM_PATH'].split(':').grep(/ruby.*@global/).first
-  if global_gemset
-    all_global_gem_paths = Dir.glob("#{global_gemset}/gems/*")
+  gem_sets = ENV['GEM_PATH'].split(':')
+  gem_sets.each do |path|
+    all_global_gem_paths = Dir.glob("#{path}/gems/*")
     all_global_gem_paths.each do |p|
       gem_path = "#{p}/lib"
       $LOAD_PATH << gem_path
