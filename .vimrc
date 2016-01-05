@@ -105,7 +105,6 @@ endif
 
 " Syntax: Highlighters, Indenters, etc... {{{
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'slim-template/vim-slim.git'
 Bundle 'leshill/vim-json'
 Bundle 'nono/vim-handlebars'
 Bundle 'slim-template/vim-slim'
