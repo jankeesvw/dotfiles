@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/jankeesvw/.oh-my-zsh/custom'
 let g:netrw_dirhist_2='/Users/jankeesvw/Documents/timi/timi/app/controllers'
 let g:netrw_dirhist_3='/Users/jankeesvw/.oh-my-zsh/custom'
 let g:netrw_dirhist_4='/Users/jankeesvw/.oh-my-zsh/custom/bin'
 let g:netrw_dirhist_5='/Users/jankeesvw'
+let g:netrw_dirhist_6='/Users/jankeesvw/dotfiles/.vim'
