@@ -20,6 +20,30 @@ alias new_hashes="perl -pi -e 's/:([\w\d_]+)(\s*)=>/\1:/g'"
 alias ip="ifconfig | grep 'inet' | grep -oE \"\w+ [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\""
 alias rebase="git fetch; git rebase origin/master"
 
+function grill() {
+  ps aux | grep -v grep | grep $1
+  PROCESSES=($(ps aux | grep -v grep | grep $1 | awk '{print $2}'))
+  for p in $PROCESSES
+  do
+    ERROR=$((kill -9 $p) 2>&1)
+    if [[ $ERROR == *"operation not permitted"* ]]; then
+      read "retry?Killing $p not permitted, retry with sudo? "
+      if [[ "$retry" =~ ^[Yy]$ ]]
+      then
+        ERROR=$((sudo kill -9 $p) 2>&1)
+      else
+        echo "Grill not permitted"
+        return false
+      fi
+    fi
+
+    if [[ ! "$ERROR" == *"no such process"* ]]; then
+      echo $ERROR
+      return false
+    fi
+  done
+}
+
 function r() {
   if ls tmp/restart.txt &> /dev/null; then
     echo "Touching 'tmp/restart.txt' for Pow restart"
