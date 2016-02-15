@@ -4,7 +4,7 @@ alias gac="git add .;git commit -a -v"  #git add and commit
 alias gl="git log --pretty=format:'%h - %an, %ar: %s'" # show a nice log: 'Jankees van Woezik, 3 days ago : Log meisters readme file'
 alias gs="git status"
 alias gm="git checkout master"
-alias gx="gitx --all"
+alias gx="gitup open"
 alias gb="git branch -av"
 alias gnb="git checkout -b "
 alias glog="git log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph"
