@@ -3,6 +3,7 @@ alias railsc="spring rails c"
 alias gac="git add .;git commit -a -v"  #git add and commit
 alias gl="git log --pretty=format:'%h - %an, %ar: %s'" # show a nice log: 'Jankees van Woezik, 3 days ago : Log meisters readme file'
 alias gs="git status"
+alias mate="subl"
 alias gm="git checkout master"
 alias gx="gitup open"
 alias gb="git branch -av"
