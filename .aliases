@@ -11,6 +11,7 @@ alias gnb="git checkout -b "
 alias glog="git log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph"
 alias gp="git pull -r"
 alias gc="git checkout"
+alias recent="git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname)' refs/heads refs/remotes | head -n 10"
 alias semver="git semver-tags"
 alias prune_branches='git checkout master && git fetch && git remote prune origin && git branch --merged master | grep -v "master$" | xargs git branch -d'
 alias push="git push && github browse"
