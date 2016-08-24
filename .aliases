@@ -13,7 +13,6 @@ alias gp="git pull -r"
 alias gc="git checkout"
 alias recent="git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname)' refs/heads refs/remotes | head -n 10"
 alias docker_remove_containers='docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")'
-alias semver="git semver-tags"
 alias prune_branches='git checkout master && git fetch && git remote prune origin && git branch --merged master | grep -v "master$" | xargs git branch -d'
 alias push="git push && github browse"
 alias bam="git push && github browse"
