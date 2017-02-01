@@ -20,6 +20,10 @@ $ cd ~ && git clone git@github.com:jankeesvw/dotfiles.git && cd dotfiles
 $ rake install
 ```
 
+## iTerm
+
+I use iTerm with this theme: [base16-railscasts.dark.256.itermcolors](https://github.com/chriskempson/base16-iterm2/blob/master/base16-railscasts.dark.256.itermcolors)
+
 ## Special thanks to
 * [Daniel van Hoesel](https://github.com/s0meone/dotfiles)
 * [Steven Weller](https://github.com/suweller/dotfiles)
