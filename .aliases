@@ -5,7 +5,7 @@ alias gl="git log --graph --decorate --oneline" # show a nice log: 'Jankees van 
 alias gs="git status"
 alias mate="subl"
 alias gm="git checkout master"
-alias gx="gitup open"
+alias gx="gitup commit"
 alias gb="git branch -av"
 alias gnb="git checkout -b "
 alias glog="git log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph"
