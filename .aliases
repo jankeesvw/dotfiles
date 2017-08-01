@@ -1,7 +1,7 @@
-#### Git aliases ####
+### Git aliases ####
 alias gac="git add .;git commit -a -v"  #git add and commit
 alias fixup="git commit --fixup"
-alias gl="git log --pretty=format:'%h - %an, %ar: %s'" # show a nice log: 'Jankees van Woezik, 3 days ago : Log meisters readme file'
+alias gl="git log --graph --decorate --oneline" # show a nice log: 'Jankees van Woezik, 3 days ago : Log meisters readme file'
 alias gs="git status"
 alias mate="subl"
 alias gm="git checkout master"
@@ -24,7 +24,6 @@ alias rebase="git fetch; git rebase origin/master"
 alias ym='ruby /Users/jankeesvw/Documents/code/ymcli/ymcli.rb'
 alias force="git push --force-with-lease"
 
-alias um='bundle exec um'
 alias pping="ping google.com"
 
 function grill() {
@@ -77,6 +76,7 @@ alias apache_log='tail -f /private/var/log/apache2/error_log'
 alias integration="bundle exec rspec spec --format nested -t integration"
 alias reload="source ~/.zshrc"
 alias tmux="TERM=screen-256color-bce tmux"
+alias git=hub
 
 unsetopt correct_all
 
