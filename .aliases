@@ -66,6 +66,7 @@ alias finderS='defaults write com.apple.finder AppleShowAllFiles TRUE && killall
 alias finderH='defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder'
 alias migrate="rake db:migrate && RAILS_ENV=test rake db:migrate"
 alias s="rails server"
+alias be="bundle exec"
 alias erd="erd; rake erd; open erd.pdf"
 alias belp="bundle exec localeapp pull"
 alias pull="git pull -r"
