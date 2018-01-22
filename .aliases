@@ -77,7 +77,6 @@ alias apache_log='tail -f /private/var/log/apache2/error_log'
 alias integration="bundle exec rspec spec --format nested -t integration"
 alias reload="source ~/.zshrc"
 alias tmux="TERM=screen-256color-bce tmux"
-alias git=hub
 
 unsetopt correct_all
 
