@@ -3,7 +3,7 @@ let t_Co=256
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-plugins=(docker git history-substring-search osx rails pow powder rbenv bundler rake-fast)
+plugins=(docker git history-substring-search osx rails bundler)
 
 ZSH_THEME=juanghurtado
 COMPLETION_WAITING_DOTS="true"
