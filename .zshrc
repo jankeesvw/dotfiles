@@ -26,3 +26,6 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 
 export GOPATH="$HOME/go"
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+
