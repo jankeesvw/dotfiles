@@ -3,7 +3,6 @@ alias gac="git add .;git commit -a -v"  #git add and commit
 alias fixup="git commit --fixup"
 alias gl="git log --graph --decorate --oneline" # show a nice log: 'Jankees van Woezik, 3 days ago : Log meisters readme file'
 alias gs="git status"
-alias mate="subl"
 alias gm="git checkout master"
 alias gx="gitup commit"
 alias gb="git branch --sort=-committerdate"
