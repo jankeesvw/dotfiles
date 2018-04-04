@@ -23,8 +23,6 @@ alias rebase="git fetch; git rebase origin/master"
 alias ym='ruby /Users/jankeesvw/Documents/code/ymcli/ymcli.rb'
 alias force="git push --force-with-lease"
 
-alias pping="ping google.com"
-
 function grill() {
   ps aux | grep -v grep | grep $1
   PROCESSES=($(ps aux | grep -v grep | grep $1 | awk '{print $2}'))
