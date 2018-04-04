@@ -23,6 +23,7 @@ alias rebase="git fetch; git rebase origin/master"
 alias ym='ruby /Users/jankeesvw/Documents/code/ymcli/ymcli.rb'
 alias force="git push --force-with-lease"
 alias mine="idea"
+alias branch="git checkout master; git pull -r; git checkout -b "
 
 function grill() {
   ps aux | grep -v grep | grep $1
