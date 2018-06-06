@@ -25,6 +25,7 @@ alias force="git push --force-with-lease"
 alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
 alias mine="idea"
 alias branch="git checkout origin/master; git checkout -b " 
+alias asdf="ruby -run -ehttpd . -p8000"
 
 function grill() {
   ps aux | grep -v grep | grep $1
