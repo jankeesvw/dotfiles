@@ -215,6 +215,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 nmap <C-N> :NERDTreeFind<cr>
 "}}}
 
+autocmd FileType gitcommit setlocal spell
 " Do not remap some keys to make window navigation easier {{{
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
