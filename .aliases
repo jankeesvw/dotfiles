@@ -24,7 +24,7 @@ alias ym='ruby /Users/jankeesvw/Documents/code/ymcli/ymcli.rb'
 alias force="git push --force-with-lease"
 alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
 alias mine="idea"
-alias branch="git checkout master; git pull -r; git checkout -b "
+alias branch="git checkout origin/master; git checkout -b " 
 
 function grill() {
   ps aux | grep -v grep | grep $1
