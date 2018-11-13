@@ -53,16 +53,8 @@ function grill() {
   done
 }
 
-function r() {
-  if ls tmp/restart.txt &> /dev/null; then
-    echo "Touching 'tmp/restart.txt' for Pow restart"
-    touch tmp/restart.txt
-  else
-    echo "'tmp/restart.txt' not found. Hint: create by hand first"
-  fi
-}
-
 #### System  specific aliases ####
+alias r="puma-dev -stop"
 alias l="ls -alG"
 alias aliases="vim ~/dotfiles/.aliases && source ~/.zshrc"
 alias finderS='defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder'
