@@ -28,6 +28,7 @@ alias branch="git fetch; git checkout origin/master; git checkout -b "
 alias asdf="ruby -run -ehttpd . -p8000"
 alias stash="git add .; git stash"
 alias unstash="git stash apply"
+alias android="~/Library/Android/sdk/emulator/emulator -avd Pixel_2_API_27 -netdelay none -netspeed full >/dev/null 2>&1 &"
 
 function grill() {
   ps aux | grep -v grep | grep $1
