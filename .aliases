@@ -1,6 +1,6 @@
 ### Git aliases ####
 alias gac="git add .;git commit -a -v"  #git add and commit
-alias fixup="git commit --fixup"
+alias fixup="git ff"
 alias gl="git log --graph --decorate --oneline" # show a nice log: 'Jankees van Woezik, 3 days ago : Log meisters readme file'
 alias gs="git status"
 alias gm="git checkout master"
@@ -23,7 +23,6 @@ alias rebase="git fetch; git rebase origin/master"
 alias ym='ruby /Users/jankeesvw/Documents/code/ymcli/ymcli.rb'
 alias force="git push --force-with-lease"
 alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
-alias mine="idea"
 alias branch="git fetch; git checkout origin/master; git checkout -b " 
 alias asdf="ruby -run -ehttpd . -p8000"
 alias stash="git add .; git stash"
