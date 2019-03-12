@@ -81,6 +81,7 @@ function grill() {
 }
 
 #### System  specific aliases ####
+alias notification="osascript -e 'display notification \"Klaar\"'"
 alias r="puma-dev -stop"
 alias l="ls -alG"
 alias aliases="vim ~/dotfiles/.aliases && source ~/.zshrc"
