@@ -33,5 +33,20 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use >/dev/null 2>&1
+  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    nvm use default >/dev/null 2>&1
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PROMPT="${ret_status}"
