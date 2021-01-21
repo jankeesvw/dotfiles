@@ -1,11 +1,11 @@
-### Git aliases ####
+alias dc="docker-compose"
 alias gac="git add .;git commit -a -v"  #git add and commit
 alias fixup="git ff"
 alias gl="git log --graph --decorate --oneline" # show a nice log: 'Jankees van Woezik, 3 days ago : Log meisters readme file'
 alias gs="git status"
 alias gm="git checkout master"
-alias gx="gitup commit"
-alias gb="git branch --sort=-committerdate"
+alias gb='git checkout $(git branch --sort=-committerdate | fzf --height 42%)'
+alias gx="gitup"
 alias gnb="git checkout -b "
 alias glog="git log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph"
 alias gp="git pull -r"
@@ -14,7 +14,6 @@ alias recent="git for-each-ref --sort=-committerdate --format='%(committerdate:s
 alias docker_remove_containers='docker rm $(docker ps -a -q) && docker rmi $(docker images -q) -f'
 alias prune_branches='git checkout master && git fetch && git remote prune origin && git branch --merged master | grep -v "master$" | xargs git branch -d'
 alias push="git push && github browse"
-alias bam="git push && github browse"
 alias route="rake routes | grep"
 alias gtrack='git branch -u origin/$(current_branch)'
 alias new_hashes="perl -pi -e 's/:([\w\d_]+)(\s*)=>/\1:/g'"
@@ -23,37 +22,65 @@ alias rebase="git fetch; git rebase origin/master"
 alias ym='ruby /Users/jankeesvw/Documents/code/ymcli/ymcli.rb'
 alias force="git push --force-with-lease"
 alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
-alias branch="git fetch; git checkout origin/master; git checkout -b " 
 alias asdf="ruby -run -ehttpd . -p8000"
 alias stash="git add .; git stash"
 alias unstash="git stash apply"
 alias android="~/Library/Android/sdk/emulator/emulator -avd Pixel_2_API_27 -netdelay none -netspeed full >/dev/null 2>&1 &"
+function branch() { git fetch; stash; git checkout master; git checkout -b $1; unstash };
 
-alias gh=GitHub
+# ZSH functions to quickly make and merge a PR on Github
+# Use it from a repository, but set up gh first (`brew install gh && gh`)
+# https://gist.github.com/ErikDeBruijn/a3767e448d82349cbf41561625289cf1/
 
-function GitHub()
-{
-    if [ ! -d .git ] ;
-        then echo "ERROR: This isnt a git directory" && return false;
-    fi
+# ZSH functions to quickly make and merge a PR on Github
+# Use it from a repository, but set up gh first (`brew install gh && gh`)
+# https://gist.github.com/ErikDeBruijn/a3767e448d82349cbf41561625289cf1/
 
-    git_url=`git config --get remote.origin.url`
-    git_domain=`echo $git_url | awk -v FS="(@|:)" '{print $2}'`
-    git_branch=`git rev-parse --abbrev-ref HEAD 2>/dev/null`
-
-    if [[ $git_url == https://* ]];
+qmerge () {
+  if [[ "$1" != "NESTED" ]]
+  then
+    echo -n Seeing if we can merge it...
+  fi
+  SLEEP_SECONDS=5
+  LAST_OPEN_PR=$(gh pr list --label automerge --state open --limit 1 1>/dev/null |grep OPEN|cut -f1)
+  if [ -z "$LAST_OPEN_PR" ]
+  then
+    echo No open PR labeled \'automerge\' to merge. Retring in $SLEEP_SECONDS seconds...
+    sleep $SLEEP_SECONDS
+    $0 NESTED
+  else
+    PR_STATUS=$(gh pr status|grep --color=never -A1 $LAST_OPEN_PR)
+    CHECKS_PASSING=0
+    echo $PR_STATUS | grep "Checks passing" >/dev/null && CHECKS_PASSING=1
+    echo $PR_STATUS | grep " failing" && echo Checks failing... && rubocop --auto-correct && rspec && exit 1
+    if [[ "$CHECKS_PASSING" == "1" ]]
     then
-        url=${git_domain}/${git_url%.git}/tree/${git_branch}
+      echo Tests GREEN\!
+      gh pr merge -m
+      git pull
     else
-       if [[ $git_url == git@* ]]
-       then
-            url="https://${git_domain}/${${git_url#*:}%.git}/tree/${git_branch}"
-            echo $url
-       else
-           echo "ERROR: Remote origin is invalid" && return false;
-       fi
+      echo -n .
+      sleep $SLEEP_SECONDS
+      $0 NESTED
     fi
-    open $url
+  fi
+}
+
+qpr () {
+   rubocop --auto-correct 2>&1 >  /tmp/rubocop.txt &
+   if [ -z "$1" ]
+   then
+    echo -n "Name your branch (e.g. fixes-this-thing): "
+    read BRANCH
+   else
+    BRANCH=$1
+   fi
+   cat /tmp/rubocop.txt
+   echo "Continue?"
+   read
+   stash && git checkout master && git pull && git checkout -b $BRANCH && unstash && \
+   git add . && git commit && git push && gh pr create -l automerge && \
+   echo Next up: merging... && sleep 2 && qmerge
 }
 
 function grill() {
@@ -88,6 +115,7 @@ alias aliases="vim ~/dotfiles/.aliases && source ~/.zshrc"
 alias finderS='defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder'
 alias finderH='defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder'
 alias migrate="rake db:migrate && RAILS_ENV=test rake db:migrate"
+alias rollback="rake db:rollback && RAILS_ENV=test rake db:rollback"
 alias s="rails server"
 alias be="bundle exec"
 alias erd="erd; rake erd; open erd.pdf"
