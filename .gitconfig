@@ -10,7 +10,7 @@
 [diff]
   renames = copies
 [core]
-	editor = vim
+	editor = /usr/local/bin/mate -w
 	excludesfile = ~/.gitignore
 	autocrlf = false
 [credential]
