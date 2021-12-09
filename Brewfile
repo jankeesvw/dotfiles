@@ -41,6 +41,7 @@ cask "figma"
 cask "front"
 cask "divvy"
 cask "evernote"
+cask "charles"
 
 brew "gpg"
 brew "rbenv"
