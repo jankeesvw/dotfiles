@@ -31,3 +31,5 @@ Thumbs.db
 .powder
 erd.pdf
 .umcli.yml
+
+/config/initializers/better_errors.rb
