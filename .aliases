@@ -25,90 +25,9 @@ alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
 alias asdf="ruby -run -ehttpd . -p8000"
 alias stash="git add .; git stash"
 alias unstash="git stash apply"
-alias android="~/Library/Android/sdk/emulator/emulator -avd Pixel_2_API_27 -netdelay none -netspeed full >/dev/null 2>&1 &"
-function branch() { git fetch; stash; git checkout master; git checkout -b $1; unstash };
 alias repo="gh repo view -w"
 alias pulls="gh pr list -w"
 alias pr="gh pr view -w"
-
-# ZSH functions to quickly make and merge a PR on Github
-# Use it from a repository, but set up gh first (`brew install gh && gh`)
-# https://gist.github.com/ErikDeBruijn/a3767e448d82349cbf41561625289cf1/
-
-# ZSH functions to quickly make and merge a PR on Github
-# Use it from a repository, but set up gh first (`brew install gh && gh`)
-# https://gist.github.com/ErikDeBruijn/a3767e448d82349cbf41561625289cf1/
-
-qmerge () {
-  if [[ "$1" != "NESTED" ]]
-  then
-    echo -n Seeing if we can merge it...
-  fi
-  SLEEP_SECONDS=5
-  LAST_OPEN_PR=$(gh pr list --label automerge --state open --limit 1 1>/dev/null |grep OPEN|cut -f1)
-  if [ -z "$LAST_OPEN_PR" ]
-  then
-    echo No open PR labeled \'automerge\' to merge. Retring in $SLEEP_SECONDS seconds...
-    sleep $SLEEP_SECONDS
-    $0 NESTED
-  else
-    PR_STATUS=$(gh pr status|grep --color=never -A1 $LAST_OPEN_PR)
-    CHECKS_PASSING=0
-    echo $PR_STATUS | grep "Checks passing" >/dev/null && CHECKS_PASSING=1
-    echo $PR_STATUS | grep " failing" && echo Checks failing... && rubocop --auto-correct && rspec && exit 1
-    if [[ "$CHECKS_PASSING" == "1" ]]
-    then
-      echo Tests GREEN\!
-      gh pr merge -m
-      git pull
-    else
-      echo -n .
-      sleep $SLEEP_SECONDS
-      $0 NESTED
-    fi
-  fi
-}
-
-qpr () {
-   rubocop --auto-correct 2>&1 >  /tmp/rubocop.txt &
-   if [ -z "$1" ]
-   then
-    echo -n "Name your branch (e.g. fixes-this-thing): "
-    read BRANCH
-   else
-    BRANCH=$1
-   fi
-   cat /tmp/rubocop.txt
-   echo "Continue?"
-   read
-   stash && git checkout master && git pull && git checkout -b $BRANCH && unstash && \
-   git add . && git commit && git push && gh pr create -l automerge && \
-   echo Next up: merging... && sleep 2 && qmerge
-}
-
-function grill() {
-  ps aux | grep -v grep | grep $1
-  PROCESSES=($(ps aux | grep -v grep | grep $1 | awk '{print $2}'))
-  for p in $PROCESSES
-  do
-    ERROR=$((kill -9 $p) 2>&1)
-    if [[ $ERROR == *"operation not permitted"* ]]; then
-      read "retry?Killing $p not permitted, retry with sudo? "
-      if [[ "$retry" =~ ^[Yy]$ ]]
-      then
-        ERROR=$((sudo kill -9 $p) 2>&1)
-      else
-        echo "Grill not permitted"
-        return false
-      fi
-    fi
-
-    if [[ ! "$ERROR" == *"no such process"* ]]; then
-      echo $ERROR
-      return false
-    fi
-  done
-}
 
 #### System  specific aliases ####
 alias notification="osascript -e 'display notification \"Klaar\"'"
