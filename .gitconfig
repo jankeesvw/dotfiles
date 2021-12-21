@@ -13,6 +13,7 @@
 	editor = /usr/local/bin/mate -w
 	excludesfile = ~/.gitignore
 	autocrlf = false
+	pager = less
 [credential]
 	helper = osxkeychain
 [gist]
@@ -37,9 +38,6 @@
 	autocorrect = 1
 [rebase]
 	autosquash = true
-[pager]
-	diff = diff-so-fancy | less --tabs=1,5 -R
-	show = diff-so-fancy | less --tabs=1,5 -R
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
