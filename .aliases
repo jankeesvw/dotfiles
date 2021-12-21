@@ -28,6 +28,7 @@ alias unstash="git stash apply"
 alias repo="gh repo view -w"
 alias pulls="gh pr list -w"
 alias pr="gh pr view -w"
+alias rubobranch="git diff --diff-filter=AM --name-only master.. | grep .rb | gawk '{gsub(/StekkerWeb\//,\"\")}1\' |  xargs rubocop"
 
 #### System  specific aliases ####
 alias notification="osascript -e 'display notification \"Klaar\"'"
