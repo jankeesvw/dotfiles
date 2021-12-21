@@ -1,7 +1,5 @@
 cask_args appdir: "/Applications"
 
-
-mas "Xcode", id: 497799835
 mas "Boop", id: 1518425043
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
@@ -27,7 +25,6 @@ cask "alfred"
 cask "daisydisk"
 cask "handbrake"
 cask "sf-symbols"
-cask "skitch"
 cask "spotify"
 cask "swiftbar"
 cask "textmate"
@@ -42,7 +39,12 @@ cask "front"
 cask "divvy"
 cask "evernote"
 cask "charles"
+cask "postman"
+cask "android-studio"
+cask "pester"
+cask "signal"
 
+brew "gawk"
 brew "gpg"
 brew "rbenv"
 brew "autojump"
