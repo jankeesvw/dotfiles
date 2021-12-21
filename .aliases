@@ -33,7 +33,7 @@ alias pr="gh pr view -w"
 alias notification="osascript -e 'display notification \"Klaar\"'"
 alias r="puma-dev -stop"
 alias l="ls -alG"
-alias aliases="vim ~/dotfiles/.aliases && source ~/.zshrc"
+alias aliases="mate -w ~/dotfiles/.aliases && source ~/.zshrc"
 alias finderS='defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder'
 alias finderH='defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder'
 alias migrate="rake db:migrate && RAILS_ENV=test rake db:migrate"
